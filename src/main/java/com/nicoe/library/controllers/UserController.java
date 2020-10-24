@@ -1,6 +1,7 @@
 package com.nicoe.library.controllers;
 
 import com.nicoe.library.beans.User;
+import com.nicoe.library.proxies.LibraryProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,9 +20,14 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
+    private final LibraryProxy libraryProxy;
+
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public UserController(LibraryProxy libraryProxy) { this.libraryProxy = libraryProxy;}
 
     private void addUserInSession(User user, HttpSession httpSession) {
         httpSession.setAttribute("userInSessionId", user.getId());

@@ -2,6 +2,7 @@ package com.nicoe.library.controllers;
 
 import com.nicoe.library.beans.Copy;
 import com.nicoe.library.beans.User;
+import com.nicoe.library.proxies.LibraryProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
