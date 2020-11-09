@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@FeignClient(name = "libraryapi", url = "localhost:9090")
+@FeignClient(name = "libraryApi", url = "localhost:9090")
 public interface LibraryProxy {
 
     @PostMapping("/registerProcess")

@@ -3,8 +3,17 @@ package com.nicoe.library.beans;
 import java.io.Serializable;
 
 public class Book implements Serializable {
+    private Integer id;
     private String title;
     private String author;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

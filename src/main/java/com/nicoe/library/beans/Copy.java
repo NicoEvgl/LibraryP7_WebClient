@@ -8,7 +8,7 @@ public class Copy implements Serializable {
     private Date loanStartDate;
     private Date loanEndDate;
     private Boolean extend;
-    private Boolean available;
+    private Boolean isAvailable;
 
     private Book book;
 
@@ -46,11 +46,11 @@ public class Copy implements Serializable {
     }
 
     public Boolean getAvailable() {
-        return available;
+        return isAvailable;
     }
 
     public void setAvailable(Boolean available) {
-        this.available = available;
+        isAvailable = available;
     }
 
     public Book getBook() {

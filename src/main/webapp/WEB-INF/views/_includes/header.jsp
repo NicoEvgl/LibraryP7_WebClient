@@ -36,7 +36,7 @@
                             <a class="nav-link" href="<c:url value="/personalSpace/${userInSessionId}"/>">${ userInSessionUsername }</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/bookList"/>">Nos livres</a>
+                            <a class="nav-link" href="<c:url value="/bookSearch"/>">Rechercher un livre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value="/logout"/>">Se déconnecter</a>
@@ -52,7 +52,7 @@
                             <a class="nav-link" href="<c:url value="/login"/>">Se connecter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/bookList"/>">Nos livres</a>
+                            <a class="nav-link" href="<c:url value="/bookSearch"/>">Rechercher un livre</a>
                         </li>
                     </ul>
                 </c:otherwise>
