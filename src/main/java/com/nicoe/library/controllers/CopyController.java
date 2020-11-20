@@ -28,9 +28,7 @@ public class CopyController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) auth.getPrincipal();
         libraryProxy.extendLoan(copyId);
-        List<Copy> copies = libraryProxy.findLoansByUserId(user.getId());
         model.addAttribute("user", user);
-        model.addAttribute("copies", copies);
         return "redirect:/personalSpace";
     }
 }

@@ -6,29 +6,26 @@
 <main class="page home-page">
     <section class="clean-block clean-info dark">
         <div class="container">
-            <div class="block-heading">
-                <h2 class="text-info">Bienvenue sur le site Library</h2>
-                <h2 class="text-info">Library</h2>
-                <p>
-                    Notre site référence tous les ouvrages disponibles dans notre bibliothèque.
-                </p>
-            </div>
+            <header class="jumbotron my-4">
+                <h1 class="display-3">Bienvenue sur le site de la bibliothèque OC !</h1>
+                <p class="lead">Notre site référence tous les ouvrages disponibles dans notre bibliothèque.</p>
+                <a href="#"class="btn btn-primary btn-lg">Call to action!</a>
+            </header>
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h3 class="text-info"><a href="<c:url value="/"/>">Consulter la liste des ouvrages</a></h3>
-                    <div class="getting-started-info">
-                        <p>
-                            Bienvenue sur le site officiel de la  bibliothèque d'OCland.
-                            Vous trouverez dans notre catalogue tous les livres qu'il est possible
-                            d'emprunter dans notre bibliothèque et la possibilité de gérer vos
-                            emprunts depuis votre espace personnel.
-                        </p>
-                    </div>
+                <div class="getting-started-info">
+                    <p>
+                        Bienvenue sur le site officiel de la  bibliothèque d'OC.
+                        Vous trouverez dans notre catalogue tous les livres qu'il est possible
+                        d'emprunter dans notre bibliothèque et la possibilité de gérer vos
+                        emprunts depuis votre espace personnel.
+                    </p>
                 </div>
-                <div class="col-md-6"><img class="img-thumbnail" src="<c:url value="/resources/img/home.jpg"/>"/></div>
             </div>
         </div>
     </section>
 </main>
 
 <%@include file="_includes/footer.jsp"%>
+
+
+

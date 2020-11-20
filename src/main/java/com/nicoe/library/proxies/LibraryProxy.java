@@ -20,8 +20,8 @@ public interface LibraryProxy {
     @GetMapping("/findUser/{username}")
     User findUserByUsername(@PathVariable("username") String username);
 
-    @GetMapping("/findLoans/{userId}")
-    List<Copy> findLoansByUserId(@PathVariable("userId") Integer id);
+    @GetMapping("/findUser/{id}")
+    User findUserById(@PathVariable("id") Integer id);
 
     @GetMapping("/extend/{copyId}")
     void extendLoan(@PathVariable("copyId")Integer id);

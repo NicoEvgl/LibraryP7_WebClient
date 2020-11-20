@@ -7,16 +7,19 @@
 
 <html lang="fr">
 <head>
-    <title>Library</title>
-    <meta charset="UTF-8"/>
 
-    <script src="https://kit.fontawesome.com/c822637fde.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
-    <link rel="stylesheet" href="<c:url value="/resources/fonts/simple-line-icons.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/smoothproducts.css"/>"/>
-    <link rel="stylesheet" href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"/>"/>
-    <link rel="stylesheet" href="<c:url value="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"/>"/>
+    <title>LibraryOC</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="${pageContext.request.contextPath}/resources/css/heroic-features.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,12 +31,12 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
             <c:choose>
-                <c:when test="${!empty userInSessionId}">
+                <c:when test="${!empty userInSessionUsername}">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/personalSpace/${userInSessionId}"/>">${ userInSessionUsername }</a>
+                            <a class="nav-link" href="<c:url value="/personalSpace/${userInSessionUsername}"/>">${ userInSessionUsername }</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value="/bookSearch"/>">Rechercher un livre</a>
