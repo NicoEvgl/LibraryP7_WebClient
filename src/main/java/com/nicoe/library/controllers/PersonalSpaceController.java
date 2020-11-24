@@ -33,7 +33,10 @@ public class PersonalSpaceController {
             return "redirect:/home";
         }
         User userInSession = libraryProxy.findUserByUsername(userInSessionUsername);
+        List<Copy> copies = libraryProxy.findMyLoans(userInSession.getUsername());
 
+        model.addAttribute("dayDate", Date.valueOf(LocalDate.now()));
+        model.addAttribute("copies", copies);
         model.addAttribute("userInSession", userInSession);
         model.addAttribute("userInSessionId", userInSessionUsername);
         return "personalSpace";

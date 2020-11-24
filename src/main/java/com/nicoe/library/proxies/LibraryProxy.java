@@ -26,6 +26,9 @@ public interface LibraryProxy {
     @GetMapping("/extend/{copyId}")
     void extendLoan(@PathVariable("copyId")Integer id);
 
-    @PostMapping("/searchBookProcess")
+    @PostMapping("/searchBook")
     List<CopySearchResult> getCopySearchResult(Book book);
+
+    @GetMapping("/findMyLoans/{username}")
+    List<Copy> findMyLoans(@PathVariable("username") String username);
 }
