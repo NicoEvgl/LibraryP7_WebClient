@@ -60,7 +60,7 @@
                                         <tr>
                                             <td>${copies.book.title}</td>
                                             <td>${copies.book.author}</td>
-                                            <td><fmt:formatDate value ="${copies.loanStartDate}" pattern="dd MMMMM yyyy" /></td>
+                                            <td><fmt:formatDate value ="${copies.loanStartDate}"  pattern="dd MMMMM yyyy" /></td>
                                             <td><fmt:formatDate value ="${copies.loanEndDate}"  pattern="dd MMMMM yyyy" /></td>
                                             <td>
                                                 <c:if test="${copies.extend == false}">

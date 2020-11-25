@@ -5,12 +5,11 @@ import com.nicoe.library.beans.Copy;
 import com.nicoe.library.beans.User;
 import com.nicoe.library.proxies.LibraryProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.List;
 
@@ -26,13 +25,13 @@ public class CopyController {
     }
 
     @GetMapping("/extend/{copyId}")
-    public String myProfil(Model model, @PathVariable Integer copyId){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) auth.getPrincipal();
+    public String extendCopy(Model model, @PathVariable("copyId") Integer copyId, @SessionAttribute("userInSessionPseudo")String userInSessionPseudo){
+        User userInSession = libraryProxy.findUserByPseudo(userInSessionPseudo);
         libraryProxy.extendLoan(copyId);
-        List<Copy> copies = libraryProxy.consultMyLoans(user.getUserId());
+        List<Copy> copies = libraryProxy.consultMyLoans(userInSession.getUserId());
         model.addAttribute("copies", copies);
-        model.addAttribute("user", user);
+        model.addAttribute("userInSession", userInSession);
+        model.addAttribute("userInSessionPseudo", userInSessionPseudo);
         return "redirect:/personalSpace";
     }
 }
