@@ -5,12 +5,13 @@ import com.nicoe.library.proxies.LibraryProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-@Qualifier("userDetailService")
-public class UserDetailsServiceCustom implements org.springframework.security.core.userdetails.UserDetailsService {
+@Qualifier("userDetailsService")
+public class UserDetailsServiceCustom implements UserDetailsService {
 
     private final LibraryProxy libraryProxy;
 
@@ -21,7 +22,7 @@ public class UserDetailsServiceCustom implements org.springframework.security.co
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user= libraryProxy.findUserByUsername(username);
+        User user= libraryProxy.findUserByPseudo(username);
         if (user == null){
             throw new UsernameNotFoundException(username + " non trouvé");
         }

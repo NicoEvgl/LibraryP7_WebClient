@@ -1,9 +1,6 @@
 package com.nicoe.library.proxies;
 
-import com.nicoe.library.beans.Book;
-import com.nicoe.library.beans.Copy;
-import com.nicoe.library.beans.CopySearchResult;
-import com.nicoe.library.beans.User;
+import com.nicoe.library.beans.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,21 +11,18 @@ import java.util.List;
 @FeignClient(name = "libraryApi", url = "localhost:9090")
 public interface LibraryProxy {
 
-    @PostMapping("/registerProcess")
-    void createUser(User user);
+    @PostMapping("/account-creation")
+    void accountCreation(User user);
 
-    @GetMapping("/findUser/{username}")
-    User findUserByUsername(@PathVariable("username") String username);
-
-    @GetMapping("/findUser/{id}")
-    User findUserById(@PathVariable("id") Integer id);
+    @GetMapping("/find-user/{pseudo}")
+    User findUserByPseudo(@PathVariable("pseudo") String pseudo);
 
     @GetMapping("/extend/{copyId}")
-    void extendLoan(@PathVariable("copyId")Integer id);
+    void extendLoan(@PathVariable("copyId")Integer copyId);
 
-    @PostMapping("/searchBook")
+    @PostMapping("/search-book")
     List<CopySearchResult> getCopySearchResult(Book book);
 
-    @GetMapping("/findMyLoans/{username}")
-    List<Copy> findMyLoans(@PathVariable("username") String username);
+    @GetMapping("/consult-loans/{userId}")
+    List<Copy> consultMyLoans(@PathVariable("userId") Integer userId);
 }

@@ -1,5 +1,6 @@
 package com.nicoe.library.controllers;
 
+
 import com.nicoe.library.beans.Copy;
 import com.nicoe.library.beans.User;
 import com.nicoe.library.proxies.LibraryProxy;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+
 @Controller
 public class CopyController {
+
     private final LibraryProxy libraryProxy;
 
     @Autowired
@@ -22,12 +25,13 @@ public class CopyController {
         this.libraryProxy = libraryProxy;
     }
 
-
     @GetMapping("/extend/{copyId}")
-    public String extendLoan(Model model, @PathVariable Integer copyId){
+    public String myProfil(Model model, @PathVariable Integer copyId){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) auth.getPrincipal();
         libraryProxy.extendLoan(copyId);
+        List<Copy> copies = libraryProxy.consultMyLoans(user.getUserId());
+        model.addAttribute("copies", copies);
         model.addAttribute("user", user);
         return "redirect:/personalSpace";
     }

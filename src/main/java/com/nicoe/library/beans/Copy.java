@@ -4,21 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Copy implements Serializable {
-    private Integer id;
+    private Integer copyId;
     private Date loanStartDate;
     private Date loanEndDate;
     private Boolean extend;
-    private Boolean isAvailable;
+    private Boolean available;
 
     private Book book;
 
 
-    public Integer getId() {
-        return id;
+    public Integer getCopyId() {
+        return copyId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCopyId(Integer copyId) {
+        this.copyId = copyId;
     }
 
     public Date getLoanStartDate() {
@@ -46,11 +46,11 @@ public class Copy implements Serializable {
     }
 
     public Boolean getAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(Boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 
     public Book getBook() {

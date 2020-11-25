@@ -3,7 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <html lang="fr">
@@ -34,13 +34,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <c:choose>
-                <c:when test="${!empty userInSessionUsername}">
+                <c:when test="${!empty userInSessionPseudo}">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/personalSpace/${userInSessionUsername}"/>">${ userInSessionUsername }</a>
+                            <a class="nav-link" href="<c:url value="/personalSpace/${userInSessionPseudo}"/>">${userInSessionPseudo}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/bookSearch"/>">Rechercher un livre</a>
+                            <a class="nav-link" href="<c:url value="/search-book"/>">Rechercher un livre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value="/logout"/>">Se déconnecter</a>
@@ -50,13 +50,13 @@
                 <c:otherwise>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/register"/>">S'inscrire</a>
+                            <a class="nav-link" href="<c:url value="/account-creation"/>">S'inscrire</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<c:url value="/login"/>">Se connecter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<c:url value="/bookSearch"/>">Rechercher un livre</a>
+                            <a class="nav-link" href="<c:url value="/search-book"/>">Rechercher un livre</a>
                         </li>
                     </ul>
                 </c:otherwise>

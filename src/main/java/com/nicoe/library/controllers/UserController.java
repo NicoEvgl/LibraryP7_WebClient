@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
-    private final LibraryProxy libraryProxy;
 
+    private final LibraryProxy libraryProxy;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -30,8 +30,8 @@ public class UserController {
     public UserController(LibraryProxy libraryProxy) { this.libraryProxy = libraryProxy;}
 
     private void addUserInSession(User user, HttpSession httpSession) {
-        httpSession.setAttribute("userInSessionId", user.getId());
-        httpSession.setAttribute("userInSessionUsername", user.getUsername());
+        httpSession.setAttribute("userInSessionId", user.getUserId());
+        httpSession.setAttribute("userInSessionPseudo", user.getPseudo());
         httpSession.setAttribute("userInSessionEmail", user.getEmail());
     }
 
@@ -41,8 +41,8 @@ public class UserController {
      * @param model
      * @return register
      */
-    @GetMapping(value = "/register")
-    public String displayRegisterPage(Model model) {
+    @GetMapping(value = "/account-creation")
+    public String accountCreation(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
@@ -54,14 +54,12 @@ public class UserController {
      * @param model
      * @return home
      */
-    @PostMapping(value = "/registerProcess")
-    public String userRegistration(@ModelAttribute("user") User user, Model model) {
+    @PostMapping(value = "/registrationProcess")
+    public String accountCreationProcess(@ModelAttribute("user") User user, Model model) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        libraryProxy.createUser(user);
+        libraryProxy.accountCreation(user);
 
-        model.addAttribute("message", "Inscription réussie.");
         model.addAttribute("user", user);
-
         return "home";
     }
 
@@ -71,9 +69,9 @@ public class UserController {
      * @return login
      */
     @GetMapping(value = "/login")
-    public String displayLoginPage(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+    public String login(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
             return "redirect:/home";
         }
         model.addAttribute("user", new User());
@@ -88,8 +86,8 @@ public class UserController {
      * @return "/home"
      */
     @PostMapping(value = "/loginProcess")
-    public String doLogin(@ModelAttribute("user") User user, HttpSession httpSession, Model model){
-        User loggedInUser = libraryProxy.findUserByUsername(user.getUsername());
+    public String loginProcess(@ModelAttribute("user") User user, HttpSession httpSession, Model model){
+        User loggedInUser = libraryProxy.findUserByPseudo(user.getPseudo());
         addUserInSession(loggedInUser, httpSession);
         model.addAttribute("user", loggedInUser);
         return "redirect:/home";
@@ -109,9 +107,8 @@ public class UserController {
         sessionStatus.setComplete();
 
         webRequest.removeAttribute("userInSessionId", WebRequest.SCOPE_SESSION);
-        webRequest.removeAttribute("userInSessionUsername", WebRequest.SCOPE_SESSION);
+        webRequest.removeAttribute("userInSessionPseudo", WebRequest.SCOPE_SESSION);
         webRequest.removeAttribute("userInSessionEmail", WebRequest.SCOPE_SESSION);
-        webRequest.removeAttribute("userInSessionRole", WebRequest.SCOPE_SESSION);
 
         httpServletResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
         httpServletResponse.setHeader("Pragma","no-cache");

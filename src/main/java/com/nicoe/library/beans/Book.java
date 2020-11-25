@@ -3,16 +3,16 @@ package com.nicoe.library.beans;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-    private Integer id;
+    private Integer bookId;
     private String title;
     private String author;
 
-    public Integer getId() {
-        return id;
+    public Integer getBookId() {
+        return bookId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 
     public String getTitle() {

@@ -7,26 +7,20 @@ import java.io.Serializable;
 import java.util.Collection;
 
 public class User implements Serializable, UserDetails {
-    private Integer id;
-    private String gender;
+    private Integer userId;
     private String firstName;
     private String lastName;
-    private String username;
+    private String pseudo;
     private String email;
     private String password;
 
-    public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -45,12 +39,12 @@ public class User implements Serializable, UserDetails {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getEmail() {
@@ -70,26 +64,32 @@ public class User implements Serializable, UserDetails {
     }
 
     @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
-    }
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return true;
     }
 }

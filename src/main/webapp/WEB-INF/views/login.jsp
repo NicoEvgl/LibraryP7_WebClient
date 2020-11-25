@@ -11,10 +11,10 @@
             </div>
             <form:form method="post" action="loginProcess" modelAttribute="user" >
                 <div class="form-group">
-                    <form:label path="username" for="exampleInputUsername">Pseudo</form:label>
-                    <form:input path="username" type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" placeholder="pseudo" required="true"/>
+                    <form:label path="pseudo" for="exampleInputUsername">Pseudo</form:label>
+                    <form:input path="pseudo" type="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp" placeholder="pseudo" required="true"/>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your login with anyone else.</small>
-                    <form:errors path="username" cssClass="error"/>
+                    <form:errors path="pseudo" cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:label path="password" for="exampleInputPassword1">Mot de passe</form:label>
@@ -27,7 +27,7 @@
                 <div class="text-center">
                     <p>
                         Pas encore de compte ?
-                        <a  href="<c:url value="/register"/>">
+                        <a  href="<c:url value="/account-creation"/>">
                             <button class="btn btn-link btn-block" type="button">S'inscrire</button>
                         </a>
                     </p>

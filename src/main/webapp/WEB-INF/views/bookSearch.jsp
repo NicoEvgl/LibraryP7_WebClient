@@ -8,7 +8,7 @@
             <div class="block-heading">
                 <h2 class="text-info">Rechercher un livre</h2>
                 <div class="row">
-                    <form:form cssClass="form-inline" modelAttribute="book" method="post" action="searchBookProcess">
+                    <form:form cssClass="form-inline" modelAttribute="book" method="post" action="search-book">
                         <form:input type="text" path="title" class="form-control form-control-sm mb-3" placeholder="Titre"
                                     autofocus="true"/>
                         <form:input type="text" path="author" class="form-control form-control-sm mb-3" placeholder="Auteur"

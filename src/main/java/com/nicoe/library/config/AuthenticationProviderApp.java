@@ -17,9 +17,9 @@ public class AuthenticationProviderApp extends DaoAuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
         UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) authentication;
-        String username = auth.getName();
+        String name = auth.getName();
         String password = auth.getCredentials().toString();
-        UserDetails user = userDetailsService.loadUserByUsername(username);
+        UserDetails user = userDetailsService.loadUserByUsername(name);
 
         if (user == null) {
             throw new BadCredentialsException("Username/Password inconnu" + auth.getPrincipal());

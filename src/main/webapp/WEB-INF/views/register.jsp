@@ -11,13 +11,7 @@
                 <h3 class="text-info">S'inscrire</h3>
             </div>
             <div>
-                <form:form cssClass="form-group" method="post" action="registerProcess" modelAttribute="user">
-                    <div class="form-group">
-                        <form:select path="gender" type="text" cssClass="form-control" placeholder="Genre" required="true" autofocus="">
-                            <form:option value="M" label="Monsieur"/>
-                            <form:option value="F" label="Madame"/>
-                        </form:select>
-                    </div>
+                <form:form cssClass="form-group" method="post" action="registrationProcess" modelAttribute="user">
                     <div class="form-row">
                         <div class="col">
                             <form:label path="firstName" for="firstname">Prénom</form:label>
@@ -32,9 +26,9 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <form:label path="username" for="inlineFormInputGroupUsername">Nom d'utilisateur</form:label>
-                            <form:input path="username" type="text" cssClass="form-control" id="inlineFormInputGroupUsername" placeholder="Nom d'utilisateur" required="true" autofocus=""/>
-                            <form:errors path="username" cssClass="error"/>
+                            <form:label path="pseudo" for="inlineFormInputGroupUsername">Nom d'utilisateur</form:label>
+                            <form:input path="pseudo" type="text" cssClass="form-control" id="inlineFormInputGroupUsername" placeholder="Nom d'utilisateur" required="true" autofocus=""/>
+                            <form:errors path="pseudo" cssClass="error"/>
                         </div>
                         <div class="form-group col-md-6">
                             <form:label path="email" for="inputEmail4">Email</form:label>
