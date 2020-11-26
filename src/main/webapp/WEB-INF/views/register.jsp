@@ -3,7 +3,7 @@
 <%@include file="_includes/header.jsp"%>
 
 
-<div class="view" style="background-image: url('https://cdn.crunchify.com/bg.png'); background-repeat: no-repeat; background-size: cover; background-position: center ;"/>
+<div class="view"/>
 <main class="page register-page">
     <section class="clean-block clean-form dark">
         <div class="container">

@@ -12,16 +12,6 @@
                     bibliothèque et vous offre également la possibilité de gérer vos emprunts depuis votre espace personnel.</p>
                 <a class="btn btn-primary btn-lg" href="<c:url value="/search-book"/>">Rechercher un ouvrage</a>
             </header>
-            <div class="row align-items-center">
-                <div class="getting-started-info">
-                    <p>
-                        Bienvenue sur le site officiel de la  bibliothèque d'OC.
-                        Vous trouverez dans notre catalogue tous les livres qu'il est possible
-                        d'emprunter dans notre bibliothèque et la possibilité de gérer vos
-                        emprunts depuis votre espace personnel.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 </main>
