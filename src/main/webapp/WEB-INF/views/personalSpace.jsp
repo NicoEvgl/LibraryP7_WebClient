@@ -48,14 +48,17 @@
                     <div class="col">
                         <div class="card shadow mb-3">
                             <div class="card-body">
-                                <table class="table">
+                                <table class="table text-center my-0">
+                                    <thead>
                                     <tr>
-                                        <td>Titre</td>
-                                        <td>Auteur</td>
-                                        <td>Date de l'emprunt</td>
-                                        <td>Date de retour</td>
-                                        <td>Prolonger l'emprunt</td>
+                                        <th>Titre</th>
+                                        <th>Auteur</th>
+                                        <th>Date de l'emprunt</th>
+                                        <th>Date de retour</th>
+                                        <th>Prolonger l'emprunt</th>
                                     </tr>
+                                    </thead>
+                                    <tbody>
                                     <c:forEach items="${copies}" var="copies">
                                         <tr>
                                             <td>${copies.book.title}</td>
@@ -63,14 +66,20 @@
                                             <td><fmt:formatDate value ="${copies.loanStartDate}"  pattern="dd MMMMM yyyy" /></td>
                                             <td><fmt:formatDate value ="${copies.loanEndDate}"  pattern="dd MMMMM yyyy" /></td>
                                             <td>
-                                                <c:if test="${copies.extend == false}">
-                                                    <c:if test="${dayDate le copies.loanEndDate}">
+                                                <c:choose>
+                                                    <c:when test="${copies.extend == false && dayDate le copies.loanEndDate}">
                                                         <a href="<%=request.getContextPath()+response.encodeURL("/extend")%>/${copies.copyId}">prolonger</a>
-                                                    </c:if>
-                                                </c:if>
+                                                        <br />
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Emprunt prolongé
+                                                        <br />
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </td>
                                         </tr>
                                     </c:forEach>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
