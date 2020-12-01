@@ -24,6 +24,12 @@ public class PersonalSpaceController {
         this.libraryProxy = libraryProxy;
     }
 
+    /**
+     * Display
+     * @param userInSessionPseudo
+     * @param model
+     * @return
+     */
     @GetMapping("/personalSpace/{userInSessionPseudo}")
     public String personalSpace(@PathVariable@SessionAttribute("userInSessionPseudo") String userInSessionPseudo, Model model){
         if (userInSessionPseudo == null){

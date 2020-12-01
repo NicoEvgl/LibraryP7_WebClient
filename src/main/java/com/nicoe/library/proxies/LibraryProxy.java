@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+/**
+ * Connection to Web API
+ */
 @FeignClient(name = "libraryApi", url = "localhost:9090")
 public interface LibraryProxy {
 

@@ -24,12 +24,24 @@ public class BookController {
         this.libraryProxy = libraryProxy;
     }
 
+    /**
+     * Display search book page
+     * @param model book
+     * @return bookSearch
+     */
     @GetMapping("/search-book")
     public ModelAndView searchBook(Model model){
         Book book = new Book();
         model.addAttribute("book",book);
         return new ModelAndView("bookSearch");
     }
+
+    /**
+     * Search results
+     * @param model copySearchResults
+     * @param book book
+     * @return bookList
+     */
     @PostMapping("/search-book")
     public ModelAndView searchBookProcess(Model model, @ModelAttribute("book") Book book){
         List<CopySearchResult> copySearchResults = new ArrayList();

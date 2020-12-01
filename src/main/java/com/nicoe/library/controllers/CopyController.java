@@ -24,6 +24,13 @@ public class CopyController {
         this.libraryProxy = libraryProxy;
     }
 
+    /**
+     * Process to extend loan
+     * @param model copy
+     * @param copyId Integer copy ID
+     * @param userInSessionPseudo find userInSession by Pseudo
+     * @return personalSpace
+     */
     @GetMapping("/extend/{copyId}")
     public String extendCopy(Model model, @PathVariable("copyId") Integer copyId, @SessionAttribute("userInSessionPseudo")String userInSessionPseudo){
         User userInSession = libraryProxy.findUserByPseudo(userInSessionPseudo);
