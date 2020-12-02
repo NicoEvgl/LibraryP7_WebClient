@@ -12,11 +12,11 @@ Ce projet a été développé dans le cadre du cursus "Développeur d'applicatio
 Version de java : 11 (jdk utilisé : jdk13) 
 Maven 3.6 
 
-[ API ] : API Rest Web service https://github.com/NicoEvgl/LibraryP7_API.git 'LibraryP7_Api'
+[ API ] : API Rest Web service https://github.com/NicoEvgl/LibraryP7_API.git      'LibraryP7_Api'
 
-[ batch ] : Système d’envoi d’e-mails récurent https://github.com/NicoEvgl/LibraryP7_Batch.git 'LibraryP7_Batch'
+[ batch ] : Système d’envoi d’e-mails récurent https://github.com/NicoEvgl/LibraryP7_Batch.git      'LibraryP7_Batch'
 
-[ WebClient ] : Application web https://github.com/NicoEvgl/LibraryP7_WebClient.git 'LibraryP7_WebClient'
+[ WebClient ] : Application web https://github.com/NicoEvgl/LibraryP7_WebClient.git      'LibraryP7_WebClient'
 
 # Frameworks et API
 
