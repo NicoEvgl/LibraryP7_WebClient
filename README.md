@@ -1,10 +1,14 @@
 # LibraryP7_WebClient
 
 Contexte
-Ce projet a été développé dans le cadre du cursus "Développeur d'application Java" d'OpenClassrooms et correspond à la partie WEB du projet 7. Le site web permet aux usagers de suivre les prêts de leurs ouvrages. Il pourront :
+Ce projet a été développé dans le cadre du cursus "Développeur d'application Java" d'OpenClassrooms et correspond à la partie WEB du projet 7. Le site web permet aux usagers de suivre les prêts de leurs ouvrages. 
+
+Ils pourront :
 
 -Rechercher des ouvrages et voir le nombre d’exemplaires disponibles.
+
 -Consulter leurs prêts en cours. Les prêts sont pour une période de 4 semaines.
+
 -Prolonger un prêt en cours. Le prêt d’un ouvrage n’est prolongeable qu’une seule fois. La prolongation ajoute une nouvelle période de prêt (4 semaines) à la période initiale.
 
 # Architecture
