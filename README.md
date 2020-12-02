@@ -7,7 +7,7 @@ Ce projet a été développé dans le cadre du cursus "Développeur d'applicatio
 -Consulter leurs prêts en cours. Les prêts sont pour une période de 4 semaines.
 -Prolonger un prêt en cours. Le prêt d’un ouvrage n’est prolongeable qu’une seule fois. La prolongation ajoute une nouvelle période de prêt (4 semaines) à la période initiale.
 
-#Architecture
+# Architecture
 
 Version de java : 11 (jdk utilisé : jdk13) 
 Maven 3.6 
@@ -18,7 +18,7 @@ Maven 3.6
 
 [ WebClient ] : Application web https://github.com/NicoEvgl/LibraryP7_WebClient.git 'LibraryP7_WebClient'
 
-#Frameworks et API
+# Frameworks et API
 
 Spring Framework 5.0.6
 Spring Security 5.0.5
@@ -29,11 +29,11 @@ Apache Log4J 2.11.0
 Javax Mail 1.6.1
 Bootstrap 3.3.7
 
-#Persistence
+# Persistence
 
 PostgreSQL 10.4
 
-#Installation et déploiement
+# Installation et déploiement
 
 1.Configuration
 
