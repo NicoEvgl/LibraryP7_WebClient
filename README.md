@@ -18,15 +18,22 @@ Maven 3.6
 
 [ WebClient ] : Application web https://github.com/NicoEvgl/LibraryP7_WebClient.git      'LibraryP7_WebClient'
 
-# Frameworks et API
+# Frameworks
 
 Spring Framework 5.0.6
+
 Spring Security 5.0.5
+
 Spring Batch 4.0.1
+
 Spring Data 2.0.7
+
 Hibernate 5.2.17
+
 Apache Log4J 2.11.0
+
 Javax Mail 1.6.1
+
 Bootstrap 3.3.7
 
 # Persistence
