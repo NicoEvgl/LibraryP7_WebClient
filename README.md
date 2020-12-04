@@ -49,6 +49,7 @@ A modifier si l'API est déployée sur un autre endpoint.
 Application standalone intégrant un conteneur web (grace à SpringBoot)
 
 Ouvrir le terminal de commande, se placer dans le dossier du projet cloné puis taper les commandes :
+
 mvn clean spring-boot:run
 
 3.Accès
