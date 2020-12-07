@@ -2,6 +2,8 @@ package com.nicoe.library.controllers;
 
 import com.nicoe.library.beans.User;
 import com.nicoe.library.proxies.LibraryProxy;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,6 +36,8 @@ public class UserController {
         httpSession.setAttribute("userInSessionPseudo", user.getPseudo());
         httpSession.setAttribute("userInSessionEmail", user.getEmail());
     }
+
+    private static final Logger logger = LogManager.getLogger(UserController.class);
 
     /**
      * Display registration page.
@@ -87,6 +91,7 @@ public class UserController {
      */
     @PostMapping(value = "/loginProcess")
     public String loginProcess(@ModelAttribute("user") User user, HttpSession httpSession, Model model){
+        logger.debug(user.toString());
         User loggedInUser = libraryProxy.findUserByPseudo(user.getPseudo());
         addUserInSession(loggedInUser, httpSession);
         model.addAttribute("user", loggedInUser);

@@ -1,7 +1,10 @@
 package com.nicoe.library.service;
 
 import com.nicoe.library.beans.User;
+import com.nicoe.library.controllers.HomeController;
 import com.nicoe.library.proxies.LibraryProxy;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,10 +23,14 @@ public class UserDetailsServiceCustom implements UserDetailsService {
         this.libraryProxy = libraryProxy;
     }
 
+    static Logger logger = LogManager.getLogger(UserDetailsServiceCustom.class);
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        logger.debug("UserDetailsServiceCustom loadUserByUsername");
         User user= libraryProxy.findUserByPseudo(username);
         if (user == null){
+            logger.error("Utilisateur invalide");
             throw new UsernameNotFoundException(username + " non trouvé");
         }
         return user;

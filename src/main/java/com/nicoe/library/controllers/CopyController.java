@@ -4,6 +4,8 @@ package com.nicoe.library.controllers;
 import com.nicoe.library.beans.Copy;
 import com.nicoe.library.beans.User;
 import com.nicoe.library.proxies.LibraryProxy;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ public class CopyController {
         this.libraryProxy = libraryProxy;
     }
 
+    static Logger logger = LogManager.getLogger(CopyController.class);
+
     /**
      * Process to extend loan
      * @param model copy
@@ -33,6 +37,7 @@ public class CopyController {
      */
     @GetMapping("/extend/{copyId}")
     public String extendCopy(Model model, @PathVariable("copyId") Integer copyId, @SessionAttribute("userInSessionPseudo")String userInSessionPseudo){
+        logger.debug("CopyController extend");
         User userInSession = libraryProxy.findUserByPseudo(userInSessionPseudo);
         libraryProxy.extendLoan(copyId);
         List<Copy> copies = libraryProxy.consultMyLoans(userInSession.getUserId());
