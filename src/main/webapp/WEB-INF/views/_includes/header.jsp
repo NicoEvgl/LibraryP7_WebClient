@@ -16,23 +16,27 @@
 
     <title>LibraryOC</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="${pageContext.request.contextPath}/resources/css/heroic-features.css" rel="stylesheet">
-    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/c822637fde.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/fonts/simple-line-icons.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/smoothproducts.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/heroic-features.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"/>"/>
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="<c:url value="/home"/>">
-            <img src="<c:url value="/resources/img/navbar_icon.png"/>" alt="Library icon" style="width: 50px; height:auto">
+            <img src="<c:url value="/resources/img/navbar_icon.png"/>" alt="Library icon" style="width: 50px; height:auto"/>
         </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarTogglerDemo02" >
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarTogglerDemo02">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <c:choose>
                 <c:when test="${!empty userInSessionPseudo}">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
