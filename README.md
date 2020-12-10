@@ -54,4 +54,4 @@ mvn clean spring-boot:run
 
 3.Accès
 
-L'application est accessible par http://localhost:8080/ l'application via le JDD fourni contient un compte démo (Nicoe, mot de passe : pass123)
+L'application est accessible par http://localhost:8080/ l'application via le JDD fourni contient un compte démo (Nicoe, mot de passe : Pass123)
