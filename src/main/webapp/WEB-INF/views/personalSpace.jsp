@@ -88,6 +88,45 @@
             </div>
         </div>
     </section>
+    <section class="clean-block clean-services dark">
+        <div class="container">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Mes réservations</h2>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow mb-3">
+                            <div class="card-body">
+                                <table class="table text-center my-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Date du prochain retour</th>
+                                        <th>Rang dans la liste d'attente</th>
+                                        <th>Annuler Réservation</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${myReservations}" var="myReservations">
+                                        <tr>
+                                            <td>${myReservations.title}</td>
+                                            <td><fmt:formatDate value ="${myReservations.returnDate}" type="date"/></td>
+                                            <td>${myReservations.rank}</td>
+                                            <td>
+                                                <a href="<%=request.getContextPath()+response.encodeURL("/cancel-reservation")%>/${myReservations.reservationId}">ici</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <%@include file="_includes/footer.jsp"%>

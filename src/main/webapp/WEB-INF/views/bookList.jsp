@@ -11,6 +11,8 @@
                     <tr>
                         <th>Titre</th>
                         <th>Nombre d'exemplaires disponibles</th>
+                        <th>Date de retour prévue</th>
+                        <th>Réserver</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -18,6 +20,12 @@
                         <tr>
                             <td>${copySearchResults.title}</td>
                             <td>${copySearchResults.nbAvailable}</td>
+                            <td><fmt:formatDate value="${copySearchResults.expectedReturnDate}" type="date"/></td>
+                            <td>
+                                <c:if test="${copySearchResults.nbPossibleReservations - copySearchResults.nbReservationsMade >0}">
+                                    <a href="<%=request.getContextPath()+response.encodeURL("/reservation")%>/${copySearchResults.bookId}">ici</a>
+                                </c:if>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>
