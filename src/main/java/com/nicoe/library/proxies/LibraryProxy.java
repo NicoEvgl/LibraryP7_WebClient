@@ -28,4 +28,14 @@ public interface LibraryProxy {
 
     @GetMapping("/consult-loans/{userId}")
     List<Copy> consultMyLoans(@PathVariable("userId") Integer userId);
+
+    @GetMapping("/reservation/{bookId}")
+    List<MyReservations> userReservationsList(@PathVariable Integer bookId);
+
+    @PostMapping("/reservation")
+    void createReservation(Reservation reservation);
+
+    @GetMapping("cancel-reservation/{reservationId}")
+    String cancelReservation(@PathVariable Integer reservationId);
+
 }
