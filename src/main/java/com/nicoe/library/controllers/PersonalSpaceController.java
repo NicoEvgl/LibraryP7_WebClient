@@ -1,6 +1,7 @@
 package com.nicoe.library.controllers;
 
 import com.nicoe.library.beans.Copy;
+import com.nicoe.library.beans.MyReservations;
 import com.nicoe.library.beans.User;
 import com.nicoe.library.proxies.LibraryProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,9 @@ public class PersonalSpaceController {
         User userInSession = libraryProxy.findUserByPseudo(userInSessionPseudo);
         List<Copy> copies = libraryProxy.consultMyLoans(userInSession.getUserId());
 
+        List<MyReservations> myReservations = libraryProxy.userReservationsList(userInSession.getUserId());
+
+        model.addAttribute("myReservations", myReservations);
         model.addAttribute("dayDate", Date.valueOf(LocalDate.now()));
         model.addAttribute("copies", copies);
         model.addAttribute("userInSession", userInSession);
