@@ -1,4 +1,4 @@
-# LibraryP7_WebClient
+# Library_WebClient
 
 Contexte
 Ce projet a été développé dans le cadre du cursus "Développeur d'application Java" d'OpenClassrooms et correspond à la partie WEB du projet 7. Le site web permet aux usagers de suivre les prêts de leurs ouvrages. 
@@ -20,7 +20,7 @@ Maven 3.6
 
 [ batch ] : Système d’envoi d’e-mails récurent https://github.com/NicoEvgl/LibraryP7_Batch.git      'LibraryP7_Batch'
 
-[ WebClient ] : Application web https://github.com/NicoEvgl/LibraryP7_WebClient.git      'LibraryP7_WebClient'
+[ WebClient ] : Application web https://github.com/NicoEvgl/Library_WebClient.git      'Library_WebClient'
 
 # Frameworks
 
