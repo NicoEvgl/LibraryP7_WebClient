@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,16 +24,16 @@ public class ReservationController {
     }
 
     @GetMapping("/reservation/{bookId}")
-    public ModelAndView createReservation(Model model, @PathVariable Integer bookId){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if ((auth instanceof AnonymousAuthenticationToken)) {
-            return new ModelAndView("redirect:/login");
-        }
+    public ModelAndView createReservation(Model model, @PathVariable("bookId") Integer bookId, @SessionAttribute("userInSessionPseudo")String userInSessionPseudo){
+        User userInSession = libraryProxy.findUserByPseudo(userInSessionPseudo);
         Reservation reservation = new Reservation();
         reservation.setBookId(bookId);
-        User user = (User) auth.getPrincipal();
-        reservation.setUserId(user.getUserId());
-        libraryProxy.createReservation(reservation);
+        reservation.setUserId(userInSession.getUserId());
+        libraryProxy.makeReservation(reservation);
+
+        model.addAttribute("bookId", bookId);
+        model.addAttribute("userInSession", userInSession);
+        model.addAttribute("userInSessionPseudo", userInSessionPseudo);
         return new ModelAndView("redirect:/personalSpace");
     }
 
