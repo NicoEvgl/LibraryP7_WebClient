@@ -1,6 +1,8 @@
 package com.nicoe.library.beans;
 
-public class Reservation {
+import java.io.Serializable;
+
+public class Reservation implements Serializable {
     Integer bookId;
     Integer userId;
 
