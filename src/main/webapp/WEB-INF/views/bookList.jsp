@@ -22,7 +22,7 @@
                             <td>${copySearchResults.nbAvailable}</td>
                             <td><fmt:formatDate value="${copySearchResults.expectedReturnDate}" type="date"/></td>
                             <td>
-                                <c:if test="${copySearchResults.nbPossibleReservations - copySearchResults.nbReservationsMade >0}">
+                                <c:if test="${copySearchResults.nbPossibleReservations != 0}">
                                     <a href="<%=request.getContextPath()+response.encodeURL("/reservation")%>/${copySearchResults.bookId}">ici</a>
                                 </c:if>
                             </td>
