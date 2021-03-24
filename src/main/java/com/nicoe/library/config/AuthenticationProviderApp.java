@@ -29,7 +29,6 @@ public class AuthenticationProviderApp extends DaoAuthenticationProvider {
         UserDetails user = userDetailsService.loadUserByUsername(name);
 
         if (user == null) {
-            logger.error("Utilisateur invalide");
             throw new BadCredentialsException("Username/Password inconnu" + auth.getPrincipal());
         }
 

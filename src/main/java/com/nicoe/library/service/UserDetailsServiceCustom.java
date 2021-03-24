@@ -30,7 +30,6 @@ public class UserDetailsServiceCustom implements UserDetailsService {
         logger.debug("UserDetailsServiceCustom loadUserByUsername");
         User user= libraryProxy.findUserByPseudo(username);
         if (user == null){
-            logger.error("Utilisateur invalide");
             throw new UsernameNotFoundException(username + " non trouvé");
         }
         return user;
